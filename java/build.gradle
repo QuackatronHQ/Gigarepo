@@ -1,0 +1,29 @@
+plugins {
+    id 'java'
+    id 'jacoco'
+}
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_11
+    targetCompatibility = JavaVersion.VERSION_11
+}
+
+repositories {
+    mavenCentral()
+}
+
+sourceSets {
+    main {
+        java.srcDirs = ['source']
+    }
+}
+
+dependencies {
+    implementation 'io.github.davidkgp:json-parse:1.0.3'
+    implementation project(':multiModule1:subMultiModule1')
+    implementation project(":multiModule1:subMultiModule2")
+    implementation('com.github.spotbugs:spotbugs-annotations:4.2.2')
+}

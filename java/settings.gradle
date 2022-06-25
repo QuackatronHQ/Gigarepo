@@ -1,0 +1,6 @@
+rootProject.name = 'testGradle'
+include 'multiModule1:subMultiModule1'
+include 'multiModule1:subMultiModule2'
+include 'multiModule1:subMultiModuleWithErrors'
+include 'web'
+

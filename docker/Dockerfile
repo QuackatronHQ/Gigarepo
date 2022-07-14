@@ -35,7 +35,7 @@ FROM alpine
 
 RUN apk update && apk add postgresql curl
 RUN mkdir /app
-COPY --from builder /home/postgres /app
+COPY --from=builder /home/postgres /app
 
 RUN curl https://rustup.sh | sh# we will use this in the container.
 
@@ -52,7 +52,7 @@ RUN    /etc/init.d/postgresql start &&\
 RUN echo "host all  all    0.0.0.0/0  md5" >> /etc/postgresql/9.3/main/pg_hba.conf
 
 # And add ``listen_addresses`` to ``/etc/postgresql/9.3/main/postgresql.conf``
-RUN echo "listen_addresses='*' >> /etc/postgresql/9.3/main/postgresql.conf
+RUN echo "listen_addresses='*'" >> /etc/postgresql/9.3/main/postgresql.conf
 
 # Expose the PostgreSQL port
 EXPOSE 5432

@@ -2,39 +2,33 @@
   <div
     ref="header"
     v-for="item in items"
-    v-once
-    id="uniqueID"
     v-model="headerData"
-    my-prop="prop"
     v-if="!visible"
     is="header"
     @click="functionCall"
-    v-text="textContent"
-  ></div>
-  <div v-bind:foo="'bar'" />
+    v-bind:foo="'bar'"
+    :class="[{ 'foo': isFoo }, { 'bar': isBar }]"
+    v-html="someHTML"
+  >
+    <div v-for="item in navItems">{{item.name}}</div>
+  </div>
+  <div>{{title}}</div>
 </template>
 
 <script>
+import { ref } from 'vue'
+
 export default {
   name: "header",
-  data() {
-    return {
-      msg: "Welcome to DeepSource Demo Vue",
-    };
+  setup({ headerContent }) {
+    return () => {
+      const visitors = ref(0)
+      visitors++
+      return h('div', headerContent)
+    }
   },
-  props: {
-    myProp: "Number",
-    anotherProp: ["Number", "String"],
-    myFieldWithBadType: {
-      type: "Object",
-      default: function () {
-        return {};
-      },
-    },
-    myOtherFieldWithBadType: {
-      type: "Number",
-      default: 1,
-    },
-  },
+  data: {
+    title: "DeepSource",
+  }
 };
 </script>

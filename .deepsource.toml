@@ -36,6 +36,10 @@ name = "shell"
 enabled = true
 
 [[analyzers]]
+name = "terraform"
+enabled = true
+
+[[analyzers]]
 name = "javascript"
 enabled = true
 

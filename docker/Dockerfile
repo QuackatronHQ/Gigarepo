@@ -28,16 +28,21 @@ RUN git clone https://github.com/someorg/somepackage.git
 RUN make
 ADD ./a.out /app
 
+USER guest
+
 # Note: The official Debian and Ubuntu images automatically ``apt-get clean``
 # after each ``apt-get``
 
 FROM alpine
 
+USER root
+
 RUN apk update && apk add postgresql curl
 RUN mkdir /app
 COPY --from=builder /home/postgres /app
 
-RUN curl https://rustup.sh | sh# we will use this in the container.
+# To be used in the container.
+RUN curl https://rustup.sh | sh
 
 # Create a PostgreSQL role named ``docker`` with ``docker`` as the password and
 # then create a database `docker` owned by the ``docker`` role.

@@ -1,21 +1,25 @@
-export function noCopy(a: string, b: string) {
-  return;
+export function wrapInPromise<T>(data: T): Promise<T> {
+  return new Promise((resolve, _reject) => {
+    return resolve(data)
+  })
+} 
+
+export function wrapInRejectedPromise(data: any) {
+  return new Promise((_resolve, reject) => reject(data))
 }
-
-export function safeConcatenation(a: string, b: string) {
-  return a + b
-}
-
-export var getKeyNumber = function () {
-  return 13;
-}
-
-export var getKeyHolderName = () => 'Joe';
-
-
-export const roles: Array<any> = ['admin', 'manager'];
   
-  
-export class MockUser {
-  constructor(readonly name: string) {}
+export const tryCall = tryCall_
+
+var tryCall_ = async function <T>(func: () => Promise<T>): Promise<[any, T|undefined]> {
+  try {
+    const ret = await func()
+    return [undefined, ret]
+  } catch (err: any) {
+    return [err, undefined]
+  }
 }
+
+export interface WrappedInPromise {}
+
+export function fetchData() {}
+

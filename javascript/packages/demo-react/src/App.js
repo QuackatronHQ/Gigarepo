@@ -6,7 +6,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+        <img src={logo} className="App-logo" alt="logo" alt="logo_"/>
         <Home title={`Welcome to DeepSource Enterprise`} isHero={true}></Home>
         <a
           className="App-link"

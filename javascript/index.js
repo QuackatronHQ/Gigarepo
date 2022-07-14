@@ -1,7 +1,7 @@
-*
+/**
  * @fileoverview A simple command line application written in Node.js.
-   * This calls the express server defined in server.js
- */
+ * This calls the express server defined in server.js
+**/
 
 const request = require('request') // <- deprecated library
 const baseURL = `http://localhost:3000/`

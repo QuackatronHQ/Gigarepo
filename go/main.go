@@ -1,36 +1,33 @@
 package main
 
-import "fmt"
+import (
+	"context"
+	"flag"
+	"fmt"
+	"os"
 
-const (
-	productPath string = "/tmp/products.json"
-	sellerPath  string = "/tmp/sellers.json"
+	"github.com/gorilla/mux"
 )
 
 func main() {
-	s := Seller{
-		Name: "SomeSeller",
-		Address: Address{
-			City: "Gotham",
-		},
+	addr := flag.String("addr", ":9090", "server address (ip:port)")
+	flag.Parse()
+
+	ctx := &routerCtx{ctx: context.TODO(), Router: mux.NewRouter()}
+	ctx.CacheRegister()
+	ctx.RegisterHandlers()
+	server := NewServer(*addr, ctx.Logger())
+
+	go func() {
+		if err := server.ListenAndServe(); err != nil {
+			fmt.Fprintln(os.Stderr, err)
+		}
+	}()
+
+	sig, sigCloser := signalHandler()
+	defer sigCloser()
+	<-sig
+	if err := server.Shutdown(context.TODO()); err != nil {
+		fmt.Fprintln(os.Stderr, err)
 	}
-	var i GenericInterface
-	i = &s
-
-	givenCity := "Gotham"
-
-	switch i.(type) {
-	case interface{}:
-		fmt.Println("What to do")
-	case Product:
-		fmt.Println(i.(Product).DeliversTo(givenCity))
-	case Seller:
-		fmt.Println(i.(Seller).DeliversTo(givenCity))
-	}
-}
-
-func appendData() {
-	var s []string
-	s = append(s, productPath)
-	s = append(s, sellerPath)
 }

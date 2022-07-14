@@ -28,16 +28,21 @@ RUN git clone https://github.com/someorg/somepackage.git
 RUN make
 ADD ./a.out /app
 
+USER guest
+
 # Note: The official Debian and Ubuntu images automatically ``apt-get clean``
 # after each ``apt-get``
 
 FROM alpine
 
+USER root
+
 RUN apk update && apk add postgresql curl
 RUN mkdir /app
-COPY --from builder /home/postgres /app
+COPY --from=builder /home/postgres /app
 
-RUN curl https://rustup.sh | sh# we will use this in the container.
+# To be used in the container.
+RUN curl https://rustup.sh | sh
 
 # Create a PostgreSQL role named ``docker`` with ``docker`` as the password and
 # then create a database `docker` owned by the ``docker`` role.
@@ -52,7 +57,7 @@ RUN    /etc/init.d/postgresql start &&\
 RUN echo "host all  all    0.0.0.0/0  md5" >> /etc/postgresql/9.3/main/pg_hba.conf
 
 # And add ``listen_addresses`` to ``/etc/postgresql/9.3/main/postgresql.conf``
-RUN echo "listen_addresses='*' >> /etc/postgresql/9.3/main/postgresql.conf
+RUN echo "listen_addresses='*'" >> /etc/postgresql/9.3/main/postgresql.conf
 
 # Expose the PostgreSQL port
 EXPOSE 5432

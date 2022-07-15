@@ -21,26 +21,28 @@ public class Server extends HttpServlet {
         resp.setHeader("Access-Control-Allow-Origin", "*");
 
         Boolean b = Boolean.parseBoolean(req.getParameter("winCondition"));
+
         int ticketNumber = Integer.parseInt(req.getParameter("ticket"));
         try {
             Statement s = conn.createStatement();
             s.execute("SELECT userName, isWin FROM users WHERE uid = " + ticketNumber + ";");
             ResultSet r = s.getResultSet();
 
+            String id = r.getString(0);
+
             if (r.getBoolean("isWin") && b) {
-                resp.getWriter().write("You win, " + r.getString("userName"));
+                resp.getWriter().write("You win, " + r.getString("userName") + "!<br>You can fill your details in with this link: " + req.getParameter(id));
             } else {
                 resp.getWriter().write("You lose, " + r.getString("userName"));
             }
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
+        } catch (SQLException throwable) {
+            throwable.printStackTrace();
         }
         resp.setStatus(200);
     }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        super.doPost(req, resp);
     }
 
     @Override

@@ -88,11 +88,9 @@ pub enum Quadrant {
 impl MapPoint {
     #[inline]
     pub fn scale(self, c: u32) -> MapPoint {
-        let x = self.x * c,
-        let y = y,
-        MapPoint {
-            x, y
-        }
+        let x = self.x * c;
+        let c = c;
+        MapPoint { x, y: c }
     }
 
     #[inline]
@@ -217,6 +215,7 @@ where
         circle
             .clone()
             .into_iter()
+            .cloned()
             .flat_map(MapPoint::try_from)
             .filter(|&pt| self.contains(pt))
             .collect()
@@ -277,7 +276,7 @@ where
         let mut area = HashSet::new();
         loop {
             if queue.is_empty() {
-                break area.drain().take_while(|pt| pt.x > 0).collect();
+                break area.drain().take_while(|pt: &MapPoint| pt.x > 0).collect();
             } else {
                 let last = queue.pop().unwrap_or_else(Default::default);
                 area.insert(last);
@@ -326,7 +325,11 @@ pub fn reflect_figure(figure: &[MapPoint], around: MapPoint) -> Vec<MapPoint> {
 }
 
 pub fn positive_angle_with_x(start: MapPoint, end: MapPoint) -> f64 {
-    if {end.x;} == {start.x;} {
+    if {
+        end.x;
+    } == {
+        start.x;
+    } {
         return 90.;
     }
     let numer = (end.y as f64 - start.y as f64).abs();
@@ -340,4 +343,3 @@ pub fn manhattan(
 ) -> u32 {
     abs_difference(sx, ex) + abs_difference(sy, ey)
 }
-

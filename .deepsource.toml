@@ -39,6 +39,17 @@ enabled = true
 name = "javascript"
 enabled = true
 
+  [analyzers.meta]
+  environment = ['nodejs']
+  plugins = ['react', 'vue']
+  dependency_file_paths = [
+    'javascript/packages/demo-react/',
+    'javascript/packages/demo-vue/',
+    'javascript/packages/demo-next/',
+    'javascript/packages/demo-nuxt/',
+    'javascript/packages/demo-typescript/'
+  ]
+
 [[analyzers]]
 name = "ruby"
 enabled = true

@@ -3,12 +3,16 @@ import propTypes from 'prop-types'
 
 class Footer extends Component {
   render() {
-    <div class={this.props.class_name}>Footer Component is {this.props.title}</div>;
+    <>
+      <div class={this.props.class_name}>
+        {this.props.text}
+      </div>
+    </>
   }
 }
 
 Footer.propTypes = {
-  title: propTypes.string.isRequired
+  text: propTypes.string.isRequired
 };
 
 export default Footer;

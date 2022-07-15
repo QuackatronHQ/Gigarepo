@@ -1,27 +1,21 @@
-import { Component } from "react";
+import React from "react"
+import Hero from "./hero";
 
-type Props = {
-  title: string,
-  isHero: boolean
-}
-
-class Hello extends Component<Props> {
-  constructor(props) {
-    super(props);
-    this.title = props.title;
-    this.isTitleAvailable = this.title ? true : false;
-    this.isHero = props.isHero ? props.isHero : false;
-  }
-  render() {
-    return (
+export default function Home({ title, features }) {
+  return (
+    <>
       <h1 class="no-unknown-property" font-size="24" onClick={() => console.log('Should not use bind in JSX props')}>
-        <a href="javascript:void(0)">Unsafe Linking in React</a>
-        {this.isTitleAvailable ? this.title : `Welcome to DeepSource`}
+        {title ? title : `Welcome to DeepSource`}
       </h1>
-    );
-  }
+      <Hero className={'bg'} title='DeepSource is how you write clean and secure code' title=''></Hero>
+      <ul>
+        {
+          features.map((feature) => <li>{feature.title}</li>)
+        }
+      </ul>
+      <button>Login</button>
+      <SideBar></SideBar>
+      <a href="javascript:void(0)" target='_blank'>FAQs</a>
+    </>
+  );
 }
-
-
-
-export default Hello;

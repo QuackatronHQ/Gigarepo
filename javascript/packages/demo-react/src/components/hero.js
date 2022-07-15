@@ -1,14 +1,10 @@
-import { Component } from "react";
-import propTypes from 'prop-types'
+import React from "react";
 
-class Hero extends Component {
-  render() {
-    <div class={this.props.class_name}>Welcome to {this.props.title} Hero Component</div>;
-  }
+export default function Hero({ className, title }) {
+  return (
+    <>
+      <div className={className}>{title}</div>
+      <br dangerouslySetInnerHTML={{ __html: 'HTML' }} />
+    </>
+  );
 }
-
-Hero.propTypes = {
-  title: propTypes.string.isRequired
-};
-
-export default Hero;

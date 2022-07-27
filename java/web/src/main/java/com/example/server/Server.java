@@ -31,9 +31,9 @@ public class Server extends HttpServlet {
             String id = r.getString(0);
 
             if (r.getBoolean("isWin") && b) {
-                resp.getWriter().write("You win, " + r.getString("userName") + "!<br>You can fill your details in with this link: " + req.getParameter(id));
+                resp.getWriter().print("You win, " + r.getString("userName") + "!<br>You can fill your details in with this link: " + req.getParameter(id));
             } else {
-                resp.getWriter().write("You lose, " + r.getString("userName"));
+                resp.getWriter().print("You lose, " + r.getString("userName"));
             }
         } catch (SQLException throwable) {
             throwable.printStackTrace();

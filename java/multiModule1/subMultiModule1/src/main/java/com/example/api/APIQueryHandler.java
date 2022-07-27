@@ -42,7 +42,7 @@ public class APIQueryHandler {
   }
 
   public APIQueryHandler(Map<URL, ConfigData> configs) {
-    this.configs = configs;
+    configs = configs;
   }
 
   /** Shortcut for calling wait */
@@ -61,7 +61,7 @@ public class APIQueryHandler {
    */
   public void getDataInParallel() throws InterruptedException {
 
-    Thread[] ts = new Thread[configs.size()];
+    Thread ts[] = new Thread[configs.size()];
 
     // Locks make use of condition variables for synchronization.
     Condition prevDone = LOCK.newCondition();

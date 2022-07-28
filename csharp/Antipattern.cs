@@ -7,6 +7,25 @@ internal class Foo
     public object? Bar;
 }
 
+class Person
+{
+    private string _name;
+    // Same as auto-property.
+    public string Name
+    {
+        get
+        {
+            return _name;
+        }
+
+        set
+        {
+            _name = value;
+        }
+    }
+}
+
+
 internal class Antipattern
 {
     public static void CommonAntipatterns()
@@ -67,5 +86,15 @@ internal class Antipattern
         {
 
         }
+        
+        object o = new Foo();
+        var foo = o as Foo;
+        if (foo != null)
+        {
+            //
+        }
+        
+        var smtp = new SmtpClient("host", 25);
+        smtp.EnableSsl = true;
     }
 }

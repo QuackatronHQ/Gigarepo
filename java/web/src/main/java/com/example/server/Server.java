@@ -46,7 +46,7 @@ public class Server extends HttpServlet {
                 HttpResponse<String> offerResp = hc.send(offerReq, HttpResponse.BodyHandlers.ofString());
 
                 if (offerResp.body() != null) {
-                    resp.getWriter().write("An additional offer is available only for you!");
+                    resp.getWriter().write("An additional offer is available only for you!" + req.getParameter("offerId"));
                 }
 
 
@@ -80,6 +80,8 @@ public class Server extends HttpServlet {
             conn = DriverManager.getConnection(DB_URL, "user", "");
         } catch (SQLException throwables) {
             throwables.printStackTrace();
+        } finally {
+            return;
         }
 
     }

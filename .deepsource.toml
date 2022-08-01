@@ -1,6 +1,10 @@
 version = 1
 
 [[analyzers]]
+name = "sql"
+enabled = true
+
+[[analyzers]]
 name = "csharp"
 enabled = true
 

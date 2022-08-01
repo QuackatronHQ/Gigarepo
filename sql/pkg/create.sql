@@ -46,3 +46,9 @@ ORDER BY non_unique,
          TYPE,
          index_name,
          ordinal_position
+
+
+SELECT DISTINCT
+    a
+FROM foo
+GROUP BY a

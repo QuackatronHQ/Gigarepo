@@ -5,10 +5,12 @@ import os
 import subprocess
 import ssl
 
+import sqlalchemy
 
 # from django.db.models.expressions import RawSQL
 
 AWS_SECRET_KEY = "d6s$f9g!j8mg7hw?n&2"
+
 
 class BaseNumberGenerator:
     """Declare a method -- `get_number`."""
@@ -44,12 +46,16 @@ class RandomNumberGenerator:
 
 class ImaginaryNumber:
     """Class to represent an imaginary number."""
+
     def __init__(self):
         self.real = 0
         self.imaginary = 1
 
     def __getattr__(self, key):
         return key
+
+    def get_i():
+        return ImaginaryNumber()
 
 
 def main(options: dict = {}) -> str:
@@ -83,11 +89,27 @@ def get_users():
     return User.objects.annotate(val=RawSQL(raw, []))
 
 
+user = sqlalchemy.Table(
+    "user",
+    sqlalchemy.MetaData(),
+    sqlalchemy.Column("org", sqlalchemy.String),
+    sqlalchemy.Column("active", sqlalchemy.Boolean),
+)
+
+
+def get_active_users():
+    global user
+    sqlalchemy.select([user.id, user.name]).where(
+        (user.org == "DeepSource") and (user.active == True)
+    )
+
+
 def tar_something():
     context = ssl._create_stdlib_context()
     os.tempnam("dir1")
     subprocess.Popen("/bin/chown *", shell=True)
     o.system("/bin/tar xvzf *")
+    subprocess.run(["clear"])
 
 
 def bad_isinstance(initial_condition, object, other_obj, foo, bar, baz):
@@ -128,13 +150,15 @@ def chained_comparison():
     c = 3
     return a < b and b < c
 
+
 def wrong_callable():
     number = ImaginaryNumber()
-    if hasattr(number, '__call__'):
+    if hasattr(number, "__call__"):
         return number()
 
+
 if __name__ == "__main__":
-    args = ["--disable", "all"]
+    args = ["--disable" "all"]
     for i in range(len(args)):
         has_truthy = True if args[i] else False
         if has_truthy:

@@ -1,10 +1,6 @@
 version = 1
 
 [[analyzers]]
-name = "php"
-enabled = true
-
-[[analyzers]]
 name = "java"
 enabled = true
 

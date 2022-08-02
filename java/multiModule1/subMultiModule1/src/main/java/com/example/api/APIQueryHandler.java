@@ -1,6 +1,7 @@
 package com.example.api;
 
 import com.example.data.ConfigData;
+import com.google.errorprone.annotations.NoAllocation;
 
 import java.net.URL;
 import java.util.List;
@@ -102,6 +103,7 @@ public class APIQueryHandler {
     }
   }
 
+  @NoAllocation
   Thread startThread(Runnable r) {
     Thread t = new Thread(r);
     t.run();

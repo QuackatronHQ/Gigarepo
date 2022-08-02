@@ -18,6 +18,8 @@ import java.net.http.HttpResponse;
 import java.security.NoSuchAlgorithmException;
 import java.sql.*;
 
+
+
 public class Server extends HttpServlet {
 
     static final String DB_URL = "jdbc:mysql://localhost/users";
@@ -81,7 +83,6 @@ public class Server extends HttpServlet {
     public void destroy() {
         super.destroy();
     }
-
 
 
     @Override

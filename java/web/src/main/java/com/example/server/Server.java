@@ -23,7 +23,7 @@ import java.sql.*;
 public class Server extends HttpServlet {
 
     static final String DB_URL = "jdbc:mysql://localhost/users";
-    static Connection conn;
+    Connection conn;
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

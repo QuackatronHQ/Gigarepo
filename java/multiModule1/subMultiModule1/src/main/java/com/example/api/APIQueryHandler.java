@@ -66,7 +66,7 @@ public class APIQueryHandler {
 
     // Locks make use of condition variables for synchronization.
     Condition prevDone = LOCK.newCondition();
-    Map.Entry<URL, ConfigData>[] entries = configs.entrySet().toArray(new Map.Entry[configs.size()]);
+    Map.Entry<URL, ConfigData>[] entries = (Map.Entry<URL, ConfigData>[]) configs.entrySet().toArray();
     for (int i = 0; i < entries.length; i++) {
       int finalI = i;
       Lock l = new ReentrantLock();

@@ -77,7 +77,6 @@ public class APIQueryHandler {
 
       Boolean thing = getIsLocalFromConfigData(configs.get(i));
 
-
       if (thing) {
         Lock l = new ReentrantLock();
         ts[i] =

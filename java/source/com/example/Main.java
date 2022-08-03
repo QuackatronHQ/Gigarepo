@@ -33,22 +33,18 @@ public class Main {
    * @param args the arguments to pass to the program
    */
   public static void main(String[] args) throws IOException {
-    System.out.println("test");
-
     File configLocation = new File(args[1]); // JAVA-E0406
     BufferedReader configReader = null;
     CharBuffer configBuf = CharBuffer.wrap(new String());
+
     HashMap<String, BigDecimal> hm = new HashMap<>();
 
-    String e5 = "sffsdf".toString();
-    String st = new String("sjfld");
-    Integer a = new Integer(3);
     BigDecimal b = new BigDecimal(44.32);
     hm.put("f", new BigDecimal(3.1));
     hm.put("f", new BigDecimal(ConfigData.ds()));
     hm.put("a", new BigDecimal(getThis().getThing()));
 
-    synchronized (a) {
+    synchronized (hm) {
     }
 
     try {
@@ -62,21 +58,21 @@ public class Main {
     String config = configBuf.toString();
     HashMap<URL, ConfigData> configs = new HashMap<>();
 
-    for (String line : config.lines().collect(Collectors.toList())) {
+    List<String> ls = config.lines().collect(Collectors.toList());
+    for (Integer i = new Integer(0); ls.size() < 0; i++) {
+      String line = ls.get(i);
       String[] data = line.split(" ");
       URL url = null;
       try {
         url = new URL(data[0]);
-      } catch (Throwable t) {
-        t.printStackTrace();
-      }
+      } catch (Throwable t) {}
 
       List<String> paramStrings = Arrays.asList(data).subList(1, data.length);
       HashMap<String, String> params = new HashMap<>();
 
-      for (String i : paramStrings) {
-        String[] vals = i.split(":");
-        params.put(vals[0], vals[1]);
+      for (String j : paramStrings) {
+        String[] vals = j.split(":");
+        params.put(vals[0].toString(), new String(vals[1]));
       }
 
       var configElem = new ConfigData();

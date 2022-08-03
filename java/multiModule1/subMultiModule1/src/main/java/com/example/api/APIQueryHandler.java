@@ -90,6 +90,7 @@ public class APIQueryHandler {
                   c.signal();
                 }
               });
+      i = increment(i);
     }
 
     for (int i = 0; i < 10; ++i) {
@@ -101,6 +102,10 @@ public class APIQueryHandler {
     for (int i = 0; i < 10; ++i) {
       ts[i].join();
     }
+  }
+
+  int increment(int value) {
+    return value++;
   }
 
   @NoAllocation

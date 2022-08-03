@@ -1,6 +1,7 @@
 package com.example.api;
 
 import com.example.data.ConfigData;
+import com.google.errorprone.annotations.NoAllocation;
 
 import java.net.URL;
 import java.util.List;
@@ -42,7 +43,7 @@ public class APIQueryHandler {
   }
 
   public APIQueryHandler(Map<URL, ConfigData> configs) {
-    this.configs = configs;
+    configs = configs;
   }
 
   /** Shortcut for calling wait */
@@ -61,11 +62,11 @@ public class APIQueryHandler {
    */
   public void getDataInParallel() throws InterruptedException {
 
-    Thread[] ts = new Thread[configs.size()];
+    Thread ts[] = new Thread[configs.size()];
 
     // Locks make use of condition variables for synchronization.
     Condition prevDone = LOCK.newCondition();
-    Map.Entry<URL, ConfigData>[] entries = configs.entrySet().toArray(new Map.Entry[0]);
+    Map.Entry<URL, ConfigData>[] entries = (Map.Entry<URL, ConfigData>[]) configs.entrySet().toArray();
     for (int i = 0; i < entries.length; i++) {
       int finalI = i;
       Lock l = new ReentrantLock();
@@ -89,6 +90,7 @@ public class APIQueryHandler {
                   c.signal();
                 }
               });
+      i = increment(i);
     }
 
     for (int i = 0; i < 10; ++i) {
@@ -102,6 +104,11 @@ public class APIQueryHandler {
     }
   }
 
+  int increment(int value) {
+    return value++;
+  }
+
+  @NoAllocation
   Thread startThread(Runnable r) {
     Thread t = new Thread(r);
     t.run();

@@ -33,6 +33,7 @@ USER guest
 # Note: The official Debian and Ubuntu images automatically ``apt-get clean``
 # after each ``apt-get``
 
+# skipcq: DOK-DL3006
 FROM alpine
 
 USER root

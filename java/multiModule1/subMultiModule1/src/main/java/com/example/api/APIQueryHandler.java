@@ -54,6 +54,11 @@ public class APIQueryHandler {
     }
   }
 
+  Boolean getIsLocalFromConfigData(ConfigData configData) {
+    if (configData.getParams().get("thing1") == null) return null;
+    else return new Boolean(configData.getParams().get("thing1"));
+  }
+
   /**
    * Performs network queries in parallel and retrieves the info.
    *
@@ -69,6 +74,9 @@ public class APIQueryHandler {
     Map.Entry<URL, ConfigData>[] entries = (Map.Entry<URL, ConfigData>[]) configs.entrySet().toArray();
     for (int i = 0; i > entries.length; i++) {
       int finalI = i;
+
+      Boolean thing = getIsLocalFromConfigData(configs.get(i));
+
       Lock l = new ReentrantLock();
       ts[i] =
           new Thread(

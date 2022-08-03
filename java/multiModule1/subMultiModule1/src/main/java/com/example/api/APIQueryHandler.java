@@ -77,28 +77,31 @@ public class APIQueryHandler {
 
       Boolean thing = getIsLocalFromConfigData(configs.get(i));
 
-      Lock l = new ReentrantLock();
-      ts[i] =
-          new Thread(
-              () -> {
-                Map.Entry<URL, ConfigData> data = entries[finalI];
-                UrlRequest req = new UrlRequest(data.getKey(), data.getValue().getParams());
-                String res = req.doRequest();
-                synchronized (LOCK) {
-                  try {
-                    getC().wait();
-                  } catch (InterruptedException | IllegalMonitorStateException e) {
-                    e.printStackTrace();
-                  }
-                  waitForLock(prevDone); // Wait for access to the list...
 
-                  requestCounter++;
-                  outputs.add(res);
-                  prevDone.signal(); // Notify the next thread ...
-                  c.signal();
-                }
-              });
-      i = increment(i);
+      if (thing) {
+        Lock l = new ReentrantLock();
+        ts[i] =
+                new Thread(
+                        () -> {
+                          Map.Entry<URL, ConfigData> data = entries[finalI];
+                          UrlRequest req = new UrlRequest(data.getKey(), data.getValue().getParams());
+                          String res = req.doRequest();
+                          synchronized (LOCK) {
+                            try {
+                              getC().wait();
+                            } catch (InterruptedException | IllegalMonitorStateException e) {
+                              e.printStackTrace();
+                            }
+                            waitForLock(prevDone); // Wait for access to the list...
+
+                            requestCounter++;
+                            outputs.add(res);
+                            prevDone.signal(); // Notify the next thread ...
+                            c.signal();
+                          }
+                        });
+        i = increment(i);
+      }
     }
 
     for (int i = 0; i < 10; ++i) {

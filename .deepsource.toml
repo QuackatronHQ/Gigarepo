@@ -79,3 +79,7 @@ enabled = true
 [[analyzers]]
 name = "scala"
 enabled = true
+
+[[analyzers]]
+name = "ansible"
+enabled = true

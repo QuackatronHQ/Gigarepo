@@ -1,0 +1,44 @@
+---
+- hosts: localhost
+
+  tasks:
+    - name: change to postgres user
+      ansible.builtin.command: whoami
+      become_user: postgres
+      changed_when: false
+
+    - name: run yum update
+      command: yum update
+
+    - name: clone git repo
+      git:
+        repo: 'https://foosball.example.org/path/to/repo.git'
+        dest: /srv/checkout
+        version: latest
+  
+    - name: clone mercurial repo
+      hg:
+        repo: 'https://foosball.example.org/path/to/repo.git'
+        dest: /srv/checkout
+        revision: default
+
+    - name: fetch metadata as json
+      shell: cargo metadata | jq
+      ignore_errors: false
+
+    - name: enable redshift service
+      when:
+        - disabled == false
+
+    - name: install ruby 2.3.1
+      command: CONFIGURE_OPTS='--disable-install-doc' rbenv install 2.3.1
+
+    - name: Take out of load balancer pool
+      local_action: ansible.builtin.command /usr/bin/take_out_of_pool {{ inventory_hostname }}
+
+    - name: shell with jinja filter
+      shell: echo {{ "hello"|upper }}
+      changed_when: false
+
+
+

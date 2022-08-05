@@ -43,6 +43,6 @@ public class ConfigData implements Iterator<String> {
 
   @Override
   public boolean equals(Object o) { // JAVA-E0110
-    return this.hashCode() != o.hashCode();
+    return this.hashCode() == o.hashCode();
   }
 }

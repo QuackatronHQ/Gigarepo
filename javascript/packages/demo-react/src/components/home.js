@@ -4,7 +4,7 @@ import Hero from "./hero";
 export default function Home({ title, features }) {
   return (
     <>
-      <h1 class="no-unknown-property" font-size="24" onClick={() => console.log('Should not use bind in JSX props')}>
+      <h1 className="no-unknown-property" fontSize="24" onClick={() => console.log('Should not use bind in JSX props')}>
         {title ? title : `Welcome to DeepSource`}
       </h1>
       <Hero className={'bg'} title='DeepSource is how you write clean and secure code' title=''></Hero>

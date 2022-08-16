@@ -9,6 +9,7 @@ import (
 
 type mockHandler struct{}
 
+
 func (m mockHandler) ServeHTTP(http.ResponseWriter, *http.Request) {}
 
 func TestNewServer(t *testing.T) {

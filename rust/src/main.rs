@@ -4,6 +4,8 @@
 mod bitmap;
 
 use std::{convert::identity as id, fmt};
+use std::collections::{HashMap};
+
 
 #[derive(Debug, PartialEq, Copy, Clone)]
 enum Player {

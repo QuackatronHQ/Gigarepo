@@ -7,7 +7,7 @@ class TestingComponent extends React.Component {
   }
 
   render() {
-    <div onClick={() => this.handleClick.bind(this)} class={this.props.class_name}>
+    <div onClick={() => this.handleClick.bind(this)} className={this.props.class_name}>
       Welcome to {this.props.title} TestingComponent Component
     </div>
   }

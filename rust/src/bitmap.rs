@@ -131,19 +131,11 @@ where
 {
     pub fn new(width: u32, height: u32) -> Self {
         let data = vec![Default::default(); (width * height) as usize];
-        if data == [] {
-            Pixmap {
+        Pixmap {
                 width,
                 height,
                 data,
             }
-        } else {
-            Pixmap {
-                width,
-                height,
-                data,
-            }
-        }
     }
 
     pub fn new_with(width: u32, height: u32, data: Vec<T>) -> Self {

@@ -13,9 +13,7 @@ name = "docker"
 enabled = true
 
   [analyzers.meta]
-  dockerfile_paths = [
-    "docker/Dockerfile",
-  ]
+  dockerfile_paths = ["docker/Dockerfile"]
 
 [[analyzers]]
 name = "rust"
@@ -48,14 +46,9 @@ name = "javascript"
 enabled = true
 
   [analyzers.meta]
-  environment = ['nodejs']
-  plugins = ['react', 'vue']
-  dependency_file_paths = [
-    'javascript/packages/demo-react/',
-    'javascript/packages/demo-vue/',
-    'javascript/packages/demo-next/',
-    'javascript/packages/demo-nuxt/',
-    'javascript/packages/demo-typescript/'
+  plugins = [
+    "react",
+    "vue"
   ]
 
 [[analyzers]]
@@ -82,4 +75,64 @@ enabled = true
 
 [[analyzers]]
 name = "ansible"
+enabled = true
+
+[[transformers]]
+name = "dotnet-format"
+enabled = true
+
+[[transformers]]
+name = "rustfmt"
+enabled = true
+
+[[transformers]]
+name = "php-cs-fixer"
+enabled = true
+
+[[transformers]]
+name = "google-java-format"
+enabled = true
+
+[[transformers]]
+name = "prettier"
+enabled = true
+
+[[transformers]]
+name = "rubocop"
+enabled = true
+
+[[transformers]]
+name = "gofmt"
+enabled = true
+
+[[transformers]]
+name = "black"
+enabled = true
+
+[[transformers]]
+name = "isort"
+enabled = true
+
+[[transformers]]
+name = "autopep8"
+enabled = true
+
+[[transformers]]
+name = "scalafmt"
+enabled = true
+
+[[transformers]]
+name = "yapf"
+enabled = true
+
+[[transformers]]
+name = "gofumpt"
+enabled = true
+
+[[transformers]]
+name = "standardrb"
+enabled = true
+
+[[transformers]]
+name = "standardjs"
 enabled = true

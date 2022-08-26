@@ -7,10 +7,17 @@ class C {
 }
 
 object Utils {
-  def count(arr: Array[Int], criteria: Int => Boolean): Int                                = arr.filter(criteria).size
-  def exists(arr: Array[Int], criteria: Int => Boolean): Boolean                           = arr.find(criteria).isDefined
-  def filterBy(arr: Array[Int], criteria: Int => Boolean): Array[Int]                      = arr.filter(criteria)
-  def filterBy(arr: Array[Int], first: Int => Boolean, `then`: Int => Boolean): Array[Int] =
+  def count(arr: Array[Int], criteria: Int => Boolean): Int =
+    arr.filter(criteria).size
+  def exists(arr: Array[Int], criteria: Int => Boolean): Boolean =
+    arr.find(criteria).isDefined
+  def filterBy(arr: Array[Int], criteria: Int => Boolean): Array[Int] =
+    arr.filter(criteria)
+  def filterBy(
+      arr: Array[Int],
+      first: Int => Boolean,
+      `then`: Int => Boolean
+  ): Array[Int] =
     arr.filter(first).filter(`then`)
 
   def pickBy(arr: Array[Int], criteria: Int => Boolean): Unit = {
@@ -21,8 +28,9 @@ object Utils {
     }
   }
 
-  def pickFirst1(arr: Array[Int], criteria: Int => Boolean): Int           = arr.filter(criteria).head
-  def pickFirst2(arr: Array[Int], criteria: Int => Boolean): Option[Int]   =
+  def pickFirst1(arr: Array[Int], criteria: Int => Boolean): Int =
+    arr.filter(criteria).head
+  def pickFirst2(arr: Array[Int], criteria: Int => Boolean): Option[Int] =
     arr.filter(criteria).headOption
   def pickInAnOrder(arr: Array[Int], criteria: Int => Boolean): Array[Int] =
     arr.sortWith(_ < _).filter(criteria)
@@ -31,11 +39,12 @@ object Utils {
 
   @Deprecated()
   def cmpArray1(arr1: Array[Int], arr2: Array[Int]): Boolean = arr1 == arr2
-  def stringifyArray(arr: Array[Int]): String                = arr.toString
+  def stringifyArray(arr: Array[Int]): String = arr.toString
 }
 
 object Main extends App {
-  var filtered = Utils.filterBy(Range.inclusive(1, 100).toArray, criteria = x => x % 2 == 0)
+  var filtered =
+    Utils.filterBy(Range.inclusive(1, 100).toArray, criteria = x => x % 2 == 0)
   if (!filtered.isEmpty) {
     println(s"Found elements satisfying our criteria")
   }

@@ -1,18 +1,23 @@
 import React from "react";
-import propTypes from 'prop-types'
+import propTypes from "prop-types";
 
 class Content extends React.Component {
-  handleClick(){
-    console.log('We must not use bind in JSX props')
+  handleClick() {
+    console.log("We must not use bind in JSX props");
   }
 
   render() {
-    <div onClick={() => this.handleClick.bind(this)} class={this.props.class_name}>{this.props.title}</div>;
+    <div
+      onClick={() => this.handleClick.bind(this)}
+      class={this.props.class_name}
+    >
+      {this.props.title}
+    </div>;
   }
 }
 
 Content.propTypes = {
-  title: propTypes.string.isRequired
+  title: propTypes.string.isRequired,
 };
 
 export default Content;

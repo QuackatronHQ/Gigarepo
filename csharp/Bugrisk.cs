@@ -8,7 +8,7 @@ internal class Bugrisk
     {
         // CS-W1020: Calling `.ToString()` on an array does not stringify it.
         // https://deepsource.io/directory/analyzers/csharp/issues/CS-W1020
-        var arr = new[] {1, 2, 3, 4, 5};
+        var arr = new[] { 1, 2, 3, 4, 5 };
         Console.WriteLine($"Array is {arr.ToString()}");
 
         var name = "Joe";
@@ -23,7 +23,7 @@ internal class Bugrisk
 
         // CS-W1025: Potential memory leak inside `for` loop due to `stackalloc`.
         // https://deepsource.io/directory/analyzers/csharp/issues/CS-W1025.
-        for ( /* some condition */;;)
+        for ( /* some condition */; ; )
         {
             var buffer = stackalloc byte[16];
         }

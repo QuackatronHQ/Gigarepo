@@ -1,7 +1,6 @@
 import Document, { Html, Main, NextScript } from "next/document";
 import Head from "next/head";
 
-
 /** no-head-import-in-document */
 class MyDocument extends Document {
   render() {

@@ -11,6 +11,7 @@ public class UrlRequest {
   public static class A {
 
     public static String props = null;
+
     static {
       try {
         props = new String(UrlRequest.class.getResourceAsStream("a.properties").readAllBytes());
@@ -20,6 +21,7 @@ public class UrlRequest {
       System.out.println(props);
     }
   }
+
   private URL url;
   private Map<String, String> params;
 

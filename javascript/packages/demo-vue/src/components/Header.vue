@@ -7,28 +7,28 @@
     is="header"
     @click="functionCall"
     v-bind:foo="'bar'"
-    :class="[{ 'foo': isFoo }, { 'bar': isBar }]"
+    :class="[{ foo: isFoo }, { bar: isBar }]"
     v-html="someHTML"
   >
-    <div v-for="item in navItems">{{item.name}}</div>
+    <div v-for="item in navItems">{{ item.name }}</div>
   </div>
-  <div>{{title}}</div>
+  <div>{{ title }}</div>
 </template>
 
 <script>
-import { ref } from 'vue'
+import { ref } from "vue";
 
 export default {
   name: "header",
   setup({ headerContent }) {
     return () => {
-      const visitors = ref(0)
-      visitors++
-      return h('div', headerContent)
-    }
+      const visitors = ref(0);
+      visitors++;
+      return h("div", headerContent);
+    };
   },
   data: {
     title: "DeepSource",
-  }
+  },
 };
 </script>

@@ -18,7 +18,7 @@ jobs:
         with:
           java-version: 11
       - name: Build and analyze
-        run: cd java && ./gradlew test
+        run: cd java && ./gradlew test jacocoTestReport
       - name: Report test results to DeepSource
         uses: deepsourcelabs/test-coverage-action@master
         with:

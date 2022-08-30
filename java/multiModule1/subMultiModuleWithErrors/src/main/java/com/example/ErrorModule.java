@@ -6,7 +6,7 @@ import java.util.Random;
 public class ErrorModule {
   public String sayHello() {
     String a = null;
-    if (new Random().nextBoolean()) a = 128;
+    if (new Random().nextBoolean()) a = "128";
     return a;
   }
 

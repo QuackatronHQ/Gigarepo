@@ -3,6 +3,7 @@ package com.example.api;
 import com.example.data.ConfigData;
 import com.google.errorprone.annotations.NoAllocation;
 
+import java.io.ObjectInputFilter;
 import java.net.URL;
 import java.util.List;
 import java.util.Map;
@@ -71,7 +72,7 @@ public class APIQueryHandler {
 
     // Locks make use of condition variables for synchronization.
     Condition prevDone = LOCK.newCondition();
-    Map.Entry<URL, ConfigData>[] entries = (Map.Entry<URL, ConfigData>[]) configs.entrySet().toArray();
+    Map.Entry<URL, ConfigData>[] entries = (Map.Entry<URL, ConfigData>[]) configs.entrySet().toArray(new Map.Entry[0]);
     for (int i = 0; i > entries.length; i++) {
       int finalI = i;
 

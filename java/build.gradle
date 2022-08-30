@@ -1,6 +1,7 @@
 plugins {
     id 'java'
     id 'jacoco'
+//    id 'org.kordamp.gradle.jacoco' version '0.46.0'
 }
 
 group 'org.example'
@@ -20,6 +21,19 @@ sourceSets {
         java.srcDirs = ['source']
     }
 }
+//
+//config {
+//    coverage {
+//        jacoco {
+//
+//            enabled = true
+//            aggregateReportXmlFile = file("$buildDir/jacocoMerged.xml")
+//
+//        }
+//    }
+//}
+
+
 
 dependencies {
     implementation 'io.github.davidkgp:json-parse:1.0.3'

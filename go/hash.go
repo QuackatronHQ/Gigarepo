@@ -16,7 +16,7 @@ func randomSeed() uint32 {
 
 var xxhash = xxHash32.New(randomSeed()) // hash.Hash32
 
-func fastHash(clear bool, buf []byte) uint32 {
+func fastHash(_ bool, buf []byte) uint32 {
 	xxhash.Reset()
 	xxhash.Write(buf)
 	return xxhash.Sum32()

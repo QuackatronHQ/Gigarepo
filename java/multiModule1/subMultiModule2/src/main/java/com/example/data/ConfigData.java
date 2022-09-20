@@ -1,6 +1,5 @@
 package com.example.data;
 
-import java.net.URL;
 import java.util.Iterator;
 import java.util.Map;
 
@@ -9,8 +8,9 @@ public class ConfigData implements Iterator<String> {
   public static Double ds() {
     return 3.14;
   }
-    private int pos = 0;
-    private Map<String, String> params;
+
+  private int pos = 0;
+  private Map<String, String> params;
 
   public Map<String, String> getParams() {
     return params;

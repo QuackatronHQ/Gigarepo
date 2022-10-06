@@ -5,7 +5,7 @@
 # frozen_string_literal: true
 
 # Raises "use of deprecated BigDecimal.new"
-a = {"hello" => "world", "testing" => BigDecimal("123.456", 3)}
+a = { 'hello' => 'world', 'testing' => BigDecimal('123.456', 3) }
 
 # Raises "`while`/`until` detected in `begin` block"
 loop do
@@ -19,7 +19,7 @@ x >= 10 && x <= 20
 # Raises "empty rescue block detected"
 begin
   bar
-rescue
+rescue StandardError
 end
 
 # Raises "redundant `else`-clause detected"
@@ -28,7 +28,7 @@ end
 
 # Raises "unused method arguments detected"
 def some_method(_bar)
-  puts "Hello"
+  puts 'Hello'
 end
 
 # Raises "unreachable code detected"
@@ -48,13 +48,12 @@ elsif x == 1
 end
 
 # Raises "Deprecated way of initializing OpenSSL::Cipher and OpenSSL::Digest"
-OpenSSL::Cipher.new("aes-128-gcm")
+OpenSSL::Cipher.new('aes-128-gcm')
 
 # Raises "put empty method definitions on a single line"
 # Also raises "multiple methods with same name in the same scope" as we have a
 # method with same name above
-def some_method
-end
+def some_method; end
 
 # Raises "Invalid annotation keyword format detected"
 def foo

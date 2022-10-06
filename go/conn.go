@@ -28,11 +28,11 @@ func SrvListen() {
 	}
 }
 
-func dialSSH(user, password, host string, port int) (*ssh.Client, func()) {
-	var auths []ssh.AuthMethod
+func dialSSH(user, 				password, host string, port int) (*ssh.Client, func()) {
+		var auths []ssh.AuthMethod
 	aconn, err := net.Dial("unix", os.Getenv("SSH_AUTH_SOCK"))
-	if err == nil {
-		auths = append(auths, ssh.PublicKeysCallback(agent.NewClient(aconn).Signers))
+				if err == nil {
+						auths = append(auths, ssh.PublicKeysCallback(agent.NewClient(aconn).Signers))
 	}
 
 	if password != "" {

@@ -49,8 +49,7 @@ class Greet
 
     public function methodWithInnerFunction(Fo $foo)
     {
-        function getFromUserName()
-        {
+        function getFromUserName() {
             return [];
         }
     }

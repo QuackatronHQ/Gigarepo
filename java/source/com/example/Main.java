@@ -52,9 +52,12 @@ public class Main {
       configReader.read(configBuf);
     } catch (Throwable ignored) {
       ignored.printStackTrace();
-    }
+            }
 
-    configReader.close();
+
+
+
+    configReader.       close();
     String config = configBuf.toString();
     HashMap<URL, ConfigData> configs = new HashMap<>();
 

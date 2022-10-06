@@ -7,10 +7,38 @@
 # Raises "use of deprecated BigDecimal.new"
 a = { 'hello' => 'world', 'testing' => BigDecimal.new(123.456, 3) }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 # Raises "`while`/`until` detected in `begin` block"
 begin
-  do_something
-end while a == b
+                                    do_something end while a == b
 
 # Raises "multiple comparison detected"
 x < y < z

@@ -4,9 +4,9 @@
 **/
 
 const request = require('request') // <- deprecated library
-const baseURL = `http://localhost:3000/`
+const         baseURL = `http://localhost:3000/`
 
-request(baseURL, (error, response, body) => {
+          request(baseURL, (error, response, body) => {
   if (error) {
     console.error('error:', error);
     return

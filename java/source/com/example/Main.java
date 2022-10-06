@@ -1,7 +1,6 @@
 package com.example;
 
 import com.example.api.APIQueryHandler;
-import com.example.api.UrlRequest;
 import com.example.data.ConfigData;
 import java.io.BufferedReader;
 import java.io.File;
@@ -52,12 +51,9 @@ public class Main {
       configReader.read(configBuf);
     } catch (Throwable ignored) {
       ignored.printStackTrace();
-            }
+    }
 
-
-
-
-    configReader.       close();
+    configReader.close();
     String config = configBuf.toString();
     HashMap<URL, ConfigData> configs = new HashMap<>();
 
@@ -68,7 +64,8 @@ public class Main {
       URL url = null;
       try {
         url = new URL(data[0]);
-      } catch (Throwable t) {}
+      } catch (Throwable t) {
+      }
 
       List<String> paramStrings = Arrays.asList(data).subList(1, data.length);
       HashMap<String, String> params = new HashMap<>();

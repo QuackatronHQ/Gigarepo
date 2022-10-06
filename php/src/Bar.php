@@ -6,12 +6,13 @@ class Bar
 {
     public function run()
     {
-                             $hello = 'there!';
+        $hello = 'there!';
         // $hello = $hello;
 
-        try     {
-                    $this->functionFailsForSure();
-        } catch (\Throwable $exception) {  \Sentry\captureException($exception);
+        try {
+            $this->functionFailsForSure();
+        } catch (\Throwable $exception) {
+            \Sentry\captureException($exception);
         }
 
         return 'hello';

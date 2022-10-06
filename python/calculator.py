@@ -1,17 +1,8 @@
 """Simple calculator app"""
 
 
-
-
-
-
-
-
-
-
-
 def main():
-    while                   True:
+    while True:
         try:
             string = input("> ")
             print(eval(string))
@@ -23,5 +14,5 @@ def main():
 
 
 if __name__ == "__main__":
-            print("Welcome to calculator!")
-            main()
+    print("Welcome to calculator!")
+    main()

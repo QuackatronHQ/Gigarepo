@@ -6,20 +6,14 @@ use std::{
 
 #[derive(Debug)]
 pub struct Pixmap<T> {
-    pub width:                  u32,
+    pub width: u32,
     pub height: u32,
     pub data: Vec<T>,
 }
 
 #[derive(Copy, Clone, Default, Debug, Hash, PartialEq, Eq)]
 pub struct MapPoint {
-    
-    
-    
-    
-    
-    
-                pub x: u32,
+    pub x: u32,
     pub y: u32,
 }
 

@@ -8,6 +8,7 @@ def side_height(length, breadth):
 
 
 def all_primes(nums):
+
     def is_even(x):
         return x % 2 == 0
 

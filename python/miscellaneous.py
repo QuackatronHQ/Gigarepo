@@ -1,4 +1,4 @@
-from utils import get_next, render_to_frontend, render_bg
+from utils import get_next, render_bg, render_to_frontend
 
 
 class Orange:

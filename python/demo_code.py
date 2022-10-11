@@ -100,7 +100,7 @@ user = sqlalchemy.Table(
 def get_active_users():
     global user
     sqlalchemy.select([user.id, user.name]).where(
-        (user.org == "DeepSource") and (user.active == True)
+        (user.org == "DeepSource") and (user.active is True)
     )
 
 

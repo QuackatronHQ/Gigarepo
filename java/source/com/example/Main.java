@@ -16,11 +16,14 @@ import java.util.stream.Collectors;
 public class Main {
 
   static ArrayList<ConfigData> configs;
+  private final static String MONITOR = "";
 
   double thing = 2.4352;
 
   static Main getThis() {
-    return new Main();
+    synchronized(MONITOR) {
+      return new Main();
+    }
   }
 
   double getThing() {

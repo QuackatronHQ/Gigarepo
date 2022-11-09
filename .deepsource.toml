@@ -1,16 +1,19 @@
 version = 1
 
 [[analyzers]]
-name = "secrets"
+name = "terraform"
 enabled = true
 
 [[analyzers]]
-name = "rust"
+name = "go"
 enabled = true
 
   [analyzers.meta]
-  msrv = "stable"
+  import_root = "github.com/QuackatronHQ/Gigarepo"
 
 [[analyzers]]
-name = "javascript"
+name = "python"
 enabled = true
+
+  [analyzers.meta]
+  runtime_version = "3.x.x"

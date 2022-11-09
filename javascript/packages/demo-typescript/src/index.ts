@@ -1,15 +1,15 @@
 export type Wrapper<T> = {
-  data: T
-}
+  data: T;
+};
 
-export type NumWrapper = Wrapper<number>
-export type StrWrapper = Wrapper<string>
-export type NumOrStrWrapper = Wrapper<number> | Wrapper<number>
+export type NumWrapper = Wrapper<number>;
+export type StrWrapper = Wrapper<string>;
+export type NumOrStrWrapper = Wrapper<number> | Wrapper<number>;
 
 export default class DataStore {
   private data: NumWrapper = { data: 10 };
   static staticData: NumWrapper = { data: 12 };
-  private unit = 1
+  private unit = 1;
 
   constructor() {}
 
@@ -22,7 +22,7 @@ export default class DataStore {
   }
 
   get unit() {
-    console.log(this.unit)
+    console.log(this.unit);
   }
 
   static get ["staticNum"]() {
@@ -31,11 +31,11 @@ export default class DataStore {
     if (staticData.data) {
       return staticData.data.toString();
       return "static data not found";
-    } if (staticData) {
-      return staticData.data
+    }
+    if (staticData) {
+      return staticData.data;
     } else {
       return "hello world";
     }
   }
 }
-

@@ -9,7 +9,7 @@ import (
 )
 
 func imageIndex(img []image.Image, find image.Image) int {
-	for i, _ := range img {
+	for i := range img {
 		if img[i] == find {
 			return i
 		}

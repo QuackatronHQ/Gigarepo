@@ -30,3 +30,4 @@ $result = pg_query($conn, $query);
 
 $sql = "SELECT * FROM users WHERE id = " . $_GET['id'];
 $result = pg_query($conn, $sql);
+$sql_res = mysqli_query($conn, $sql);

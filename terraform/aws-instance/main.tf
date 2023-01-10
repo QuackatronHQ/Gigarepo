@@ -63,3 +63,58 @@ resource "aws_route" "no-route-target" {
 output "public_dns" {
   value = "${aws_instance.ubuntu.public_dns}"
 }
+
+resource "aws_s3_bucket" "my-bucket" {
+
+}
+
+resource "aws_s3_bucket_public_access_block" "public_acl" {
+  bucket = aws_s3_bucket.example.id
+  block_public_acls = false
+}
+
+resource "aws_s3_bucket_public_access_block" "public_policy" {
+  bucket = aws_s3_bucket.example.id
+  block_public_policy = false
+}
+
+resource "aws_s3_bucket" "bad_versioning" {
+  versioning {
+    enabled = false
+  }
+}
+
+resource "aws_s3_bucket_public_access_block" "bucket" {
+    bucket = aws_s3_bucket.example.id
+    ignore_public_acls = false
+}
+
+resource "aws_s3_bucket" "bucket" {
+  acl = "public-read"
+}
+
+provider "aws" {
+  access_key = "ASIA987654432134432678XYZ"
+  secret_key = "wJaYrXUtnXEMIWALK"
+}
+
+resource "aws_elasticsearch_domain" "es_dom" {
+  domain_name = "dom_foo"
+
+  domain_endpoint_options {
+    enforce_https = true
+    tls_security_policy = "Policy-Min-TLS-1-0-2019-07"
+  }
+}
+
+resource "aws_security_group_rule" "bad_rule" {
+  type = "egress"
+  cidr_blocks = ["0.0.0.0/0"]
+}
+
+resource "aws_elasticache_replication_group" "resource" {
+  replication_group_id = "foo"
+  replication_group_description = "foobar cluster"
+
+  at_rest_encryption_enabled = false
+}

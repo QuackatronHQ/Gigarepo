@@ -6,7 +6,6 @@ namespace App;
 
 use App\Controller\PREFERENCEController;
 
-
 use function bar as functionBar;
 use function afunc;
 

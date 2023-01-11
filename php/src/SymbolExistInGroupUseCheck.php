@@ -6,7 +6,6 @@ namespace App;
 
 use Utils\GroupUse\Version;
 
-
 use function Utils\GroupUse\php_80;
 
 use function Utils\GroupUse\php_81;

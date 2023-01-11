@@ -1,18 +1,6 @@
 version = 1
 
 [[analyzers]]
-name = "scala"
-
-[[analyzers]]
-name = "csharp"
-
-[[analyzers]]
-name = "python"
-
-  [analyzers.meta]
-  runtime_version = "3.x.x"
-
-[[analyzers]]
 name = "secrets"
 
 [[transformers]]
@@ -29,3 +17,6 @@ name = "dotnet-format"
 
 [[transformers]]
 name = "scalafmt"
+
+[[transformers]]
+name = "prettier"

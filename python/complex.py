@@ -22,10 +22,6 @@ class ComplexNumber:
     def __add__(self, other):
         return self.val + other.val
 
-    def __radd__(self, other):
-        res = (self.x + other.val, self.y)
-        return res
-
 
 if __name__ == "__main__":
     complex_num = ComplexNumber(2, 5)

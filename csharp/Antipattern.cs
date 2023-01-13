@@ -86,6 +86,13 @@ internal class Antipattern
         {
 
         }
+
+        if (emptyString == "")
+        {
+            Console.WriteLine("String is empty!");
+        }
+
+        var myCmp = s1.ToLower() == s2.ToLower();
         
         object o = new Foo();
         var foo = o as Foo;

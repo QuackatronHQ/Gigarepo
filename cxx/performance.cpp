@@ -1,6 +1,7 @@
 #include <set>
 #include <string>
 #include <vector>
+#include <algorithm>
 
 class EmployeeDetails {
 public:

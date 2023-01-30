@@ -37,8 +37,6 @@ FROM alpine
 
 USER root
 
-RUN apk update && apk add postgresql curl
-RUN mkdir /app
 COPY --from=builder /home/postgres /app
 
 # To be used in the container.

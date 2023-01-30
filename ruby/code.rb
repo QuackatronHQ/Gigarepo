@@ -69,7 +69,3 @@ end
 my_hash = {}
 # Raises "Hash merging can be replaced by hash key assignment"
 my_hash.merge!('key': value)
-
-
-# Raises "Use `size` instead of `count`"
-[1, 2, 3].count

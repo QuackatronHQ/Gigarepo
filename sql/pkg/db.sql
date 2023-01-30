@@ -14,6 +14,17 @@ SET row_security = off;
 
 CREATE EXTENSION IF NOT EXISTS plpgsql WITH SCHEMA pg_catalog;
 
+IMPORT INTO part CSV DATA(
+  'gs://sf-10/part.tbl.1',
+  'gs://sf-10/part.tbl.2',
+  'gs://sf-10/part.tbl.3',
+  'gs://sf-10/part.tbl.4',
+  'gs://sf-10/part.tbl.5',
+  'gs://sf-10/part.tbl.6',
+  'gs://sf-10/part.tbl.7',
+  'gs://sf-10/part.tbl.8'
+) WITH delimiter='|';
+
 
 --
 -- Name: EXTENSION plpgsql; Type: COMMENT; Schema: -; Owner:

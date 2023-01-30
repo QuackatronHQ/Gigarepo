@@ -30,6 +30,11 @@ public class UrlRequest {
     params = params;
   }
 
+  public void setApiRequestData(URL url, Map<String, String> params) {
+    url = url;
+    params = params;
+  }
+
   /**
    * Performs a network request and returns the data sent in the response.
    *

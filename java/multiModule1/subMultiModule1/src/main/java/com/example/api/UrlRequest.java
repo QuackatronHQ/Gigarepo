@@ -30,7 +30,7 @@ public class UrlRequest {
     params = params;
   }
 
-  public apiRequest(URL url, Map<String, String> params) {
+  public void setApiRequestData(URL url, Map<String, String> params) {
     url = url;
     params = params;
   }

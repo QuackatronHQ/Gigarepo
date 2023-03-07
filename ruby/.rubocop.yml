@@ -2,4 +2,5 @@ require:
   - rubocop-rails
 
 Rails:
-  Include: rails/**/*.rb
+  Include:
+    - "rails/**/*.rb"

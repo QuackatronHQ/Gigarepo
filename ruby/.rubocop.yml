@@ -4,3 +4,4 @@ require:
 Rails:
   Include:
     - "rails/**/*.rb"
+    - "ruby/rails/**/*.rb"

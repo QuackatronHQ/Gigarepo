@@ -2,7 +2,7 @@
 require:
   - rubocop-rails
 
-Rails/ActiveRecordCallbacksOrder:
+Rails/*:
   Enabled: true
   Include:
     - "rails/**/*.rb"

@@ -8,3 +8,7 @@ class Person < ApplicationRecord
 
   validates :name, presence: true
 end
+
+class Post < ApplicationRecord
+  belongs_to :blog, required: false
+end

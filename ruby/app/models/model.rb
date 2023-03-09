@@ -1,5 +1,11 @@
 class User < ApplicationRecord
   attribute :confirmed_at, :datetime, default: Time.now
+
+  after_commit :schedule_welcome_email, on: :create
+
+  def schedule_welcome_email
+    WelcomeEmailJob.perform_later(id)
+  end
 end
 
 class Person < ApplicationRecord

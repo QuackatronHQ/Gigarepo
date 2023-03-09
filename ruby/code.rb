@@ -78,3 +78,7 @@ file_path = 'path/to/some/file'
 unless File.exist?(file_path)
   FileUtils.remove file_path
 end
+
+case current_year when 1985..
+  dont_time_travel
+end

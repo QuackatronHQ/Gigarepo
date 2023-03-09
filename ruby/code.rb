@@ -73,3 +73,8 @@ my_hash.merge!('key': value)
 
 # Raises "Use `size` instead of `count`"
 [1, 2, 3].count
+
+file_path = 'path/to/some/file'
+unless File.exist?(file_path)
+  FileUtils.remove file_path
+end

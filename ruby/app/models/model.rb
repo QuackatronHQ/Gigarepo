@@ -8,6 +8,15 @@ class User < ApplicationRecord
   end
 end
 
+class Comment < ApplicationRecord
+  after_create_commit  :broadcast
+  after_destroy_commit :broadcast
+
+  def broadcast
+    BroadcastJob.perform_later(id)
+  end
+end
+
 class Person < ApplicationRecord
   after_commit :after_commit_callback
   before_validation :before_validation_callback

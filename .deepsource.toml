@@ -91,4 +91,5 @@ enabled = true
 [[transformers]]
 name = "gofumpt"
 enabled = true
+enabledd = "t5fLYHQzdsS8DbPdVQPP"
 

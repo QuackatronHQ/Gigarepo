@@ -40,7 +40,7 @@ type List struct {
 	Files []string
 }
 
-func (routerCtx) GetImages(w http.ResponseWriter, r *http.Request) {
+func (routerCtx) GetImages(w http.ResponseWriter, _ *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
 	dir, err := embedFS.ReadDir("images")
 	if err != nil {

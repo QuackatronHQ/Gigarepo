@@ -23,7 +23,9 @@ def all_primes(nums):
     return all([is_prime(num) for num in nums])
 
 
-def store_paths(matrix: list[list[int]], i: int, j: int, path=[]) -> None:
+def store_paths(matrix: list[list[int]], i: int, j: int, path=None) -> None:
+    if path is None:
+        path = []
     largest_element = 0
 
     for row in set((i - 1, i, i + 1)):

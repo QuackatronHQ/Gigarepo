@@ -12,10 +12,8 @@ class RealNumber:
         raise NotImplementedError
 
 
-
 class FooBar:
     """This is a thing"""
-
 
 
 class ComplexNumber:

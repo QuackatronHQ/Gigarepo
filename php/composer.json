@@ -13,6 +13,12 @@
     "squizlabs/php_codesniffer": "^3.6"
   },
   "require": {
-    "sentry/sdk": "^3.1"
-  }
+    "sentry/sdk": "dev-release/3.4.0"
+  },
+  "repositories": [
+    {
+      "type": "vcs",
+      "url": "git@github.com:getsentry/sentry-php.git"
+    }
+  ]
 }

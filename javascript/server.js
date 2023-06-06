@@ -18,7 +18,7 @@ const xml = readFileSync("data.xml", "utf8");
 // insecure XML parse
 const xmlDoc = libxmljs.parseXmlString(xml, {
   noblanks: true,
-  noent: true,
+  noent: false,
   nocdata: true,
 });
 console.log(xmlDoc);

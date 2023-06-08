@@ -1,6 +1,12 @@
-import org.jetbrains.annotations.NotNull;
+class Main {
 
-public class BadDoubleCompareTo implements Comparable<BadDoubleCompareTo> {
+}
+
+class Filter {
+    String featureName = "";
+}
+
+public class BadDoubleCompareTo implements Comparable<Main> {
     @Override
     public int compareTo(Main o) {
         double d1 = Math.random();
@@ -37,7 +43,9 @@ public class BadDoubleCompareTo implements Comparable<BadDoubleCompareTo> {
     @Override
     public boolean equals(Object obj) {
         double minValue = 1.0, maxValue = 2.0;
-        Objects.equals(featureName, filter.featureName) && (minValue == maxValue);
+        String featureName = "";
+        Filter filter = new Filter();
+        boolean result = java.util.Objects.equals(featureName, filter.featureName) && (minValue == maxValue);
         return super.equals(obj);
     }
 }

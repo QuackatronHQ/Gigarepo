@@ -1,4 +1,9 @@
 public class RedundantBooleanLiteral {
+    String urlText = "https://google.com";
+
+    private boolean returnsBoolean() {
+        return false;
+    }
 
     public void test() {
         boolean something = returnsBoolean() ? true : false; // raise: JAVA-W1064

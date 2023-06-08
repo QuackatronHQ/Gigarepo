@@ -1,14 +1,14 @@
 public enum EnumGetClass {
-    A,
-    B {
+    APPLE,
+    BANANA {
         @Override
         public String toString() {
-            return "AYYYYY";
+            return "banana";
         }
     };
 
     int classNameSize() {
-        return getClass()// raise: JAVA-E1106
+        return getClass()
                 .getName()
                 .length();
     }

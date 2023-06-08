@@ -1,6 +1,6 @@
 public class FormatStrNewline {
     public static void main(String[] args) {
-        var str = String.format("this bad %d\n", 10); // raise: JAVA-W0379
+        var str = String.format("The value is %d\n", 10);
         System.out.println(str);
     }
 }

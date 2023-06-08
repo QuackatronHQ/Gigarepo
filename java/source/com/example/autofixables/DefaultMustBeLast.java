@@ -1,7 +1,7 @@
 public class DefaultMustBeLast {
     public static void main(String[] args) {
         final int value = 10;
-        switch (value) { // raise: JAVA-W1010
+        switch (value) {
             case 20:
                 System.out.println("Value is 20!");
                 break;
@@ -13,13 +13,13 @@ public class DefaultMustBeLast {
                 break;
         }
 
-        int ret = switch (value) { // raise: JAVA-W1010
+        int ret = switch (value) {
             default -> 0;
             case 1 -> 1;
             case 2 -> 2;
         };
 
-        int moreRet = switch (value) { // raise: JAVA-W1010
+        int moreRet = switch (value) {
             default -> {
                 System.out.println("default");
                 yield 0;
@@ -35,7 +35,7 @@ public class DefaultMustBeLast {
         };
 
         // No `break` at the last case.
-        switch (value) { // raise: JAVA-W1010
+        switch (value) {
             case 20:
                 System.out.println("Value is 20!");
                 break;
@@ -46,7 +46,7 @@ public class DefaultMustBeLast {
                 System.out.println("Value if 10!");
         }
 
-        switch (value) { // raise: JAVA-W1010
+        switch (value) {
             case 20:
                 System.out.println("Value is 20!");
                 break;

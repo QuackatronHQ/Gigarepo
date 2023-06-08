@@ -1,53 +1,45 @@
 public class RedundantBooleanLiteral {
-    String urlText = "https://google.com";
+    String urlText = "https://google.com/auth";
 
-    private boolean returnsBoolean() {
+    private boolean userLoggedIn() {
         return false;
     }
 
     public void test() {
-        boolean something = returnsBoolean() ? true : false; // raise: JAVA-W1064
-        boolean onemorething = (returnsBoolean() == true); // raise: JAVA-W1064
-        boolean thing2 = returnsBoolean() == false; // raise: JAVA-W1064
-        boolean thing3 = true == false; // raise: JAVA-W1064
+        boolean loggedIn = userLoggedIn() ? true : false;
+        boolean onemorething = (userLoggedIn() == true);
+        boolean thing2 = userLoggedIn() == false;
+        boolean thing3 = true == false;
         boolean otherthing = true;
 
         boolean result = (this.urlText == null ? false : !this.urlText.equals(""));
 
-        if (something = false) {
-            // something goes here
+        if (loggedIn = false) {
+            System.out.println("Not logged in");
         }
 
-        if (returnsBoolean() == true) { // raise: JAVA-W1064
-            System.out.println("here already");
+        if (userLoggedIn() == true) {
+            System.out.println("Logged in");
         }
 
-        if (!false) { // raise: JAVA-W1064
-            System.out.println("here already");
+        if (!false) {
+            System.out.println("Can be simplified");
         }
 
-        if (something || true) { // raise: JAVA-W1064
-            System.out.println("here already");
+        if (loggedIn || true) {
+            System.out.println("This is always printed");
         }
 
-        if (something || false) { // raise: JAVA-W1064
-            System.out.println("here already");
+        if (loggedIn || false) {
+            System.out.println("Execution of this if depends on the value of loggedIn");
         }
 
-        if (something && true) { // raise: JAVA-W1064
-            System.out.println("here already");
+        if (loggedIn && true) {
+            System.out.println("Execution of this if depends on the value of loggedIn");
         }
 
-        if (something && false) { // raise: JAVA-W1064
-            System.out.println("here already");
-        }
-
-        if (returnsBoolean() == (Boolean)false) {
-            // ...
-        }
-
-        if ((Boolean)false == returnsBoolean()) {
-            // ...
+        if (loggedIn && false) {
+            System.out.println("Never executed");
         }
     }
 }

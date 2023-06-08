@@ -14,7 +14,7 @@ class IffySwitch {
                 System.out.println("default");
         }
         
-        switch (a) { // raise: JAVA-W1086
+        switch (a) {
             case 2: {
                 System.out.println("2");
                 break;
@@ -24,7 +24,7 @@ class IffySwitch {
             }
         }
 
-        switch (a) { // raise: JAVA-W1086
+        switch (a) {
             case 2: {
                 System.out.println("2");
             }

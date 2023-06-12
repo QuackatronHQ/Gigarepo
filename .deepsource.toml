@@ -1,60 +1,6 @@
 version = 1
 
 [[analyzers]]
-name = "terraform"
-
-[[analyzers]]
-name = "sql"
-
-[[analyzers]]
-name = "scala"
-
-[[analyzers]]
-name = "python"
-
-  [analyzers.meta]
-  runtime_version = "3.x.x"
-
-[[analyzers]]
-name = "cxx"
-
-[[analyzers]]
-name = "shell"
-
-[[analyzers]]
-name = "rust"
-
-  [analyzers.meta]
-  msrv = "stable"
-
-[[analyzers]]
-name = "php"
-
-[[analyzers]]
-name = "docker"
-
-[[analyzers]]
-name = "secrets"
-
-[[analyzers]]
-name = "ruby"
-
-[[analyzers]]
-name = "javascript"
-
-[[analyzers]]
-name = "csharp"
-
-[[analyzers]]
-name = "go"
-
-  [analyzers.meta]
-  import_root = "github.com/QuackatronHQ/Gigarepo"
-
-[[analyzers]]
-name = "ansible"
-
-[[analyzers]]
 name = "java"
 
   [analyzers.meta]
@@ -62,3 +8,6 @@ name = "java"
 
 [[analyzers]]
 name = "test-coverage"
+
+[[transformers]]
+name = "google-java-format"

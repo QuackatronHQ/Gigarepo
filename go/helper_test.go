@@ -9,7 +9,7 @@ import (
 
 type mockHandler struct{}
 
-func (m mockHandler) ServeHTTP(http.ResponseWriter, *http.Request) {}
+func (mockHandler) ServeHTTP(http.ResponseWriter, *http.Request) {}
 
 func TestNewServer(t *testing.T) {
 	var addr = "127.0.0.1:8080"

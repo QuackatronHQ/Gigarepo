@@ -34,6 +34,8 @@ func verifyIP(ip *string, _ bool) bool {
 	allowedIP := net.ParseIP("2404:6800:4002:825::200e")
 	addr := *ip
 
+	os.Stderr.Write([]byte(fmt.Sprintf("Checking address: %s", addr)))
+
 	// Check if the IP starts with a 2.
 	if []rune(addr)[0] != '2' {
 		return false

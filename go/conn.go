@@ -37,7 +37,8 @@ func verifyIP(ip *string, _ bool) bool {
 	os.Stderr.Write([]byte(fmt.Sprintf("Checking address: %s", addr)))
 
 	// Check if the IP starts with a 2.
-	if []rune(addr)[0] != '2' {
+	r := []rune(addr)[0]
+	if r != '2' {
 		return false
 	}
 

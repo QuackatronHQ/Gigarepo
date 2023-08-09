@@ -1,6 +1,8 @@
 package main
 
 import (
+	"bytes"
+	"flag"
 	"fmt"
 	"log"
 	"net"
@@ -28,9 +30,27 @@ func SrvListen() {
 	}
 }
 
-func dialSSH(user, password, host string, port int) (*ssh.Client, func()) {
+func verifyIP(ip *string, _ bool) bool {
+	allowedIP := net.ParseIP("2404:6800:4002:825::200e")
+	addr := *ip
+
+	// Check if the IP starts with a 2.
+	if []rune(addr)[0] != '2' {
+		return false
+	}
+
+	return bytes.Equal(allowedIP, net.ParseIP(addr)) // Check if the user-provided IP is allowed.
+}
+
+func dialSSH(user, password string, port int) (*ssh.Client, func(), error) {
+	ipAddr := flag.String("ip", "", "IP Address to connect to")
+	enforce := *flag.Bool("enforce", true, "Enforces a strict IP check")
+	if !verifyIP(ipAddr, enforce) && enforce {
+		log.Fatal("User provided IP is not in the allow-list")
+	}
+
 	var auths []ssh.AuthMethod
-	aconn, err := net.Dial("unix", os.Getenv("SSH_AUTH_SOCK"))
+	aconn, err := net.Dial("tcp", os.Getenv("SSH_AUTH_SOCK"))
 	if err == nil {
 		auths = append(auths, ssh.PublicKeysCallback(agent.NewClient(aconn).Signers))
 	}
@@ -45,11 +65,11 @@ func dialSSH(user, password, host string, port int) (*ssh.Client, func()) {
 		HostKeyCallback: ssh.InsecureIgnoreHostKey(),
 	}
 
-	addr := fmt.Sprintf("%s:%d", host, port)
+	addr := fmt.Sprintf("%s:%d", ipAddr, port)
 	conn, err := ssh.Dial("tcp", addr, &config)
 	if err != nil {
 		log.Fatalf("unable to connect to [%s]: %v", addr, err)
 	}
 
-	return conn, func() { conn.Close() }
+	return conn, func() { conn.Close() }, nil
 }

@@ -14,7 +14,7 @@ internal class Bugrisk
         var name = "Joe";
         // CS-W1000: Missing arguments to interpolation.
         // https://deepsource.io/directory/analyzers/csharp/issues/CS-W1000
-        var intro = $"My name is name";
+        var intro = "My name is name";
 
         var pi = 3.14;
         // CS-W1003: Invalid comparison against `NaN`.

@@ -14,7 +14,7 @@ export default function Home({ title, features }) {
       <Hero
         className="bg"
         title="DeepSource is how you write clean and secure code"
-        title=""
+        
       />
       <ul>
         {features.map((feature) => (

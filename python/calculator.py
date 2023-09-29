@@ -1,3 +1,6 @@
+import sys
+
+
 """Simple calculator app"""
 
 
@@ -8,7 +11,7 @@ def main():
             print(eval(string))
         except (KeyboardInterrupt, EOFError):
             print()
-            exit()
+            sys.exit()
         except (BaseException, KeyboardInterrupt) as e:
             print(e)
 

@@ -129,7 +129,7 @@ def bad_isinstance(initial_condition, object, other_obj, foo, bar, baz):
 
 
 def check(x):
-    if x == 1 or x == 2, or x == 3:
+    if x == 1 or x == 2 or x == 3:
         print("Yes")
     elif x != 2 or x != 3:
         print("also true")

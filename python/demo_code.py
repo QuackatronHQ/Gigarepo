@@ -140,7 +140,7 @@ def check(x):
     elif x == 10 or x == 20 or x == 30 and x == 40:
         print("Sweet!")
 
-    elif x in (10, 20, 30):
+    elif x in (10, 20, 30) or x == 1 or x == 2:
         print("Why even?")
 
 

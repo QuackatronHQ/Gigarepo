@@ -1,5 +1,5 @@
 # A Github Actions config to run Solhint and report the artifact to DeepSource
-name: Solhint Analysis
+name: Solhint Analysis for Solidity
 
 on:
   # Note that both `push` and `pull_request` triggers should be present for GitHub to consistently present solhint
@@ -21,15 +21,21 @@ jobs:
         with:
           ref: ${{ github.event.pull_request.head.sha }}
 
-      - uses: actions/setup-node@v4 (Install deps and solhint)
+      - uses: actions/setup-node@v4
         with:
           node-version: "16"
           cache: npm
+          cache-dependency-path: "solidity/package-lock.json"
+
+      - name: Install solhint
+        run: |
+          npm install solhint@^4.1.1
 
       - name: Run solhint
         id: solhint
         run: |
-          npx solhint 'solidity/*.sol' -f sarif > solhint.sarif
+          cd solidity
+          npx solhint '*.sol' -f sarif > solhint.sarif
         # The following line prevents aborting the workflow immediately in case your files fail solhint checks.
         # This allows the following upload-sarif action to still upload the results.
         continue-on-error: true

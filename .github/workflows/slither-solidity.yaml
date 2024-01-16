@@ -1,6 +1,5 @@
 # ref: https://github.com/crytic/slither-action#how-to-use-1
-# A copy-paste Github Actions config to run Slither and report the artifact to DeepSource
-name: Slither Analysis
+name: Slither Analysis for Solidity
 
 on:
   # Note that both `push` and `pull_request` triggers should be present for GitHub to consistently present slither

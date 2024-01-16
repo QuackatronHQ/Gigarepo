@@ -34,11 +34,6 @@ jobs:
         # This allows the following upload-sarif action to still upload the results.
         continue-on-error: true
 
-      - name: Tailscale
-        uses: tailscale/github-action@v1
-        with:
-          authkey: ${{ secrets.TAILSCALE_AUTHKEY }}
-
       - name: Upload SARIF report files to DeepSource
         id: upload-sarif
         run: |

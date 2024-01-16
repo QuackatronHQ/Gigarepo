@@ -72,3 +72,11 @@ name = "go"
 
 [[analyzers]]
 name = "javascript"
+
+[[analyzers]]
+name = "slither"
+type = "community"
+
+[[analyzers]]
+name = "solhint"
+type = "community"

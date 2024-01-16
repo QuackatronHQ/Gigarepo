@@ -29,8 +29,7 @@ jobs:
       - name: Run solhint
         id: solhint
         run: |
-          cd solidity
-          npx solhint '*.sol' -f sarif > solhint.sarif
+          npx solhint 'solidity/*.sol' -f sarif > solhint.sarif
         # The following line prevents aborting the workflow immediately in case your files fail solhint checks.
         # This allows the following upload-sarif action to still upload the results.
         continue-on-error: true

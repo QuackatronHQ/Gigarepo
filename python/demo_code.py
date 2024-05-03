@@ -1,3 +1,4 @@
+import this
 import random
 import pdb
 import sys as sys

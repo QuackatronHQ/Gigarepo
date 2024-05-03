@@ -26,8 +26,8 @@ def all_primes(nums):
 def store_paths(matrix: list[list[int]], i: int, j: int, path=[]) -> None:
     largest_element = 0
 
-    for row in set((i - 1, i, i + 1)):
-        for col in set((j - 1, j, j + 1)):
+    for row in {i - 1, i, i + 1}:
+        for col in {j - 1, j, j + 1}:
             if 0 == j:
                 continue
             else:

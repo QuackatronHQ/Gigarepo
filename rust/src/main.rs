@@ -75,6 +75,12 @@ impl Board {
     }
 }
 
+impl Board {
+    pub fn dummy_function(&self) {
+        // dummy function
+    }
+}
+
 fn main() {
     let mut board = Board::new();
 

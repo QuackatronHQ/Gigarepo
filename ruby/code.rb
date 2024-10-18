@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+# test
+
 # Raises "bad ordering of magic comments"
 # frozen_string_literal: true
 # encoding: ascii

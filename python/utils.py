@@ -12,7 +12,7 @@ def all_primes(nums):
         return x % 2 == 0
 
     def is_prime(x):
-        if x == 0 or x == 1:
+        if x in (0, 1):
             return False
 
         for i in range(2, x):

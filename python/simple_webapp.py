@@ -28,7 +28,8 @@ class SigninMixin:
         self.signed_in = True
 
     def check_signed_in(self):
-        assert self.signed_in == True, RuntimeError("You are not authorized!")
+        if self.signed_in != True:
+            raise AssertionError(RuntimeError("You are not authorized!"))
 
 
 class AdminDashboard(BasePage, AdminMixin, SigninMixin, AdminMixin):

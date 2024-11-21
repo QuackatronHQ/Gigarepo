@@ -12,7 +12,7 @@ import (
 	"golang.org/x/crypto/ssh/agent"
 )
 
-func SrvListen() {
+func  {
 	nl, err := net.Listen("tcp", "0.0.0.0:8989")
 	if err != nil {
 		log.Fatal(err)

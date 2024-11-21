@@ -1,9 +1,9 @@
-import random
-import pdb
-import sys as sys
 import os
-import subprocess
+import pdb
+import random
 import ssl
+import subprocess
+import sys as sys
 
 import sqlalchemy
 
@@ -40,7 +40,8 @@ class RandomNumberGenerator:
 
     def get_number(self, min_max=[1, 10]):
         """Get a random number between min and max."""
-        assert all([isinstance(i, int) for i in min_max])
+        if not all([isinstance(i, int) for i in min_max]):
+            raise AssertionError
         return random.randint(*min_max)
 
 
@@ -99,9 +100,8 @@ user = sqlalchemy.Table(
 
 def get_active_users():
     global user
-    sqlalchemy.select([user.id, user.name]).where(
-        (user.org == "DeepSource") and (user.active == True)
-    )
+    sqlalchemy.select([user.id, user.name]).where((user.org == "DeepSource")
+                                                  and (user.active == True))
 
 
 def tar_something():
@@ -113,18 +113,12 @@ def tar_something():
 
 
 def bad_isinstance(initial_condition, object, other_obj, foo, bar, baz):
-    if (
-        initial_condition
-        and (
-            isinstance(object, int)
-            or isinstance(object, float)
-            or isinstance(object, str)
-        )
-        and isinstance(other_obj, float)
-        and isinstance(foo, str)
-        or (isinstance(bar, float) or isinstance(bar, str))
-        and (isinstance(baz, float) or isinstance(baz, int))
-    ):
+    if (initial_condition and
+        (isinstance(object, int) or isinstance(object, float)
+         or isinstance(object, str)) and isinstance(other_obj, float)
+            and isinstance(foo, str)
+            or (isinstance(bar, float) or isinstance(bar, str)) and
+            (isinstance(baz, float) or isinstance(baz, int))):
         pass
 
 
@@ -158,7 +152,8 @@ def wrong_callable():
 
 
 if __name__ == "__main__":
-    args = ["--disable" "all"]
+    args = ["--disable"
+            "all"]
     for i in range(len(args)):
         has_truthy = True if args[i] else False
         if has_truthy:

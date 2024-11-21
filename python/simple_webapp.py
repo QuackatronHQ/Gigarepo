@@ -5,6 +5,7 @@ import flask
 
 
 class BasePage:
+
     def __init__(self):
         self.html = "<h1>Hello world!</h1>"
         self.config = self.load_config()
@@ -21,6 +22,7 @@ class BasePage:
 
 
 class SigninMixin:
+
     def __init__(self):
         self.signed_in = False
 
@@ -28,7 +30,7 @@ class SigninMixin:
         self.signed_in = True
 
     def check_signed_in(self):
-        assert self.signed_in == True, RuntimeError("You are not authorized!")
+        assert self.signed_in is True, RuntimeError("You are not authorized!")
 
 
 class AdminDashboard(BasePage, AdminMixin, SigninMixin, AdminMixin):

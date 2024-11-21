@@ -30,6 +30,8 @@ func SrvListen() {
 	}
 }
 
+_ = 1;
+
 func verifyIP(ip *string, _ bool) bool {
 	allowedIP := net.ParseIP("2404:6800:4002:825::200e")
 	addr := *ip

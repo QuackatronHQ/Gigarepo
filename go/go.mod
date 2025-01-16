@@ -1,6 +1,6 @@
 module github.com/QuackatronHQ/Gigarepo/demo-go
 
-go 1.18
+go 1.23
 
 require (
 	github.com/coocood/freecache v1.2.1

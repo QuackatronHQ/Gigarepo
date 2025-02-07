@@ -3,6 +3,8 @@
  * This calls the express server defined in server.js
  **/
 
+import request;
+
 const request = require("request"); // <- deprecated library
 const baseURL = "http://localhost:3000/";
 

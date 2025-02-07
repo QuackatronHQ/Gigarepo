@@ -12,7 +12,7 @@ const httpProxy = require("http-proxy");
 const { createProxyMiddleware } = require("http-proxy-middleware");
 const libxmljs = require("libxmljs");
 
-const app = express();
+const app = exp();
 
 const xml = readFileSync("data.xml", "utf8");
 // insecure XML parse

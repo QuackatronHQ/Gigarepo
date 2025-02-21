@@ -6,6 +6,7 @@
 const request = require("request"); // <- deprecated library
 const baseURL = "http://localhost:3000/";
 
+debugger;
 request(baseURL, (error, response, body) => {
   if (error) {
     console.error("error:", error);
@@ -36,7 +37,7 @@ function isCountryValid(country) {
 }
 
 for (const country of Object.keys(ExpectedCapitals)) {
-  if (!country in ExpectedCapitals) {
+  if ((!country) in ExpectedCapitals) {
     // <- equivalent to (!key) in Object
     throw "Impossible"; // <- Literal throws are illegal
   }
@@ -57,6 +58,6 @@ for (const country of Object.keys(ExpectedCapitals)) {
       if (body && body.message !== capital) {
         console.log("Incorrect capital for " + country);
       }
-    }
+    },
   );
 }

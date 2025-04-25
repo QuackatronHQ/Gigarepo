@@ -25,7 +25,7 @@ class ResidentsDb:
             raise RuntimeError("Cannot access private data")
 
         data = self.cursor.execute(
-            "SELECT id FROM userdata WHERE Name ={};".format(name)
+            "SELECT id FROM userdata WHERE Name = %s;", (name,)
         )
         self.conn.commit()
         return data

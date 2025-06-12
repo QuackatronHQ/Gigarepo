@@ -18,10 +18,10 @@ const xml = readFileSync("data.xml", "utf8");
 // insecure XML parse
 const xmlDoc = libxmljs.parseXmlString(xml, {
   noblanks: true,
-  noent: true,
+  noent: false,
   nocdata: true,
 });
-console.log(xmlDoc);
+
 
 httpProxy
   .createProxyServer({
@@ -46,7 +46,7 @@ app.use(helmet.expectCt({ enforce: false }));
 const path = ".";
 childProcess.exec(`ls -l ${path}`, (err, data) => {
   if (err) return;
-  console.log(data);
+  
 });
 
 /**
@@ -114,4 +114,4 @@ app.get("/capital", async (req, res) => {
   res.end();
 });
 
-app.listen(3000, () => console.log("listening @3000"));
+app.listen(3000, () => {});

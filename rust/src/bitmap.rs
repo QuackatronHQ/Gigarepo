@@ -4,7 +4,7 @@ use std::{
     ops::{Add, Sub},
 };
 
-pub mod checkignore;
+pub mod checkignore;  // skipcq: RS-D1001
 
 #[derive(Debug)]
 pub struct Pixmap<T> {

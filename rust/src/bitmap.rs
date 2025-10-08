@@ -4,6 +4,8 @@ use std::{
     ops::{Add, Sub},
 };
 
+pub mod checkignore;
+
 #[derive(Debug)]
 pub struct Pixmap<T> {
     pub width: u32,

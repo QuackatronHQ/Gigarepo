@@ -1,6 +1,6 @@
 {
   "name": "demo-js",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Repository to demonstrate sample issues in JavaScript raised by DeepSource",
   "main": "index.js",
   "scripts": {

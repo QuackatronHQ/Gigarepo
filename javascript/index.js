@@ -23,6 +23,23 @@ const ExpectedCapitals = {
   India: "Delhi", // <- duplicate key
 };
 
+request(baseURL, (error, response, body) => {
+  if (error) {
+    console.error("error:", error);
+    return;
+  }
+  console.log("statusCode:", response && response.statusCode);
+  console.log("body:", body);
+});
+
+const ExpectedCapitals = {
+  India: "New Delhi",
+  USA: "WDC",
+  Nepal: "Kathmandu",
+  China: "Beijing",
+  India: "Delhi", // <- duplicate key
+};
+
 /**
  * @param {string} country
  * @return {[boolean, string]}

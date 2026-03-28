@@ -1,11 +1,12 @@
 """Simple calculator app"""
+import ast
 
 
 def main():
     while True:
         try:
             string = input("> ")
-            print(eval(string))
+            print(ast.literal_eval(string))
         except (KeyboardInterrupt, EOFError):
             print()
             exit()

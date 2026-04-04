@@ -9,11 +9,11 @@ variable "location" {
 
 variable "linux_dns_prefix" {
   description = "DNS prefix to add public IP address for Linux VM"
+  default = "my-linux-vm"
 }
 
 variable "admin_pass" {
   description = "Administrator password for Linux VM"
-  default = "iamapassword"
 }
 
 module "linuxserver" {
@@ -33,9 +33,10 @@ module "network" {
   version             = "1.2.2"
   location            = "${var.location}"
   resource_group_name = "${var.linux_dns_prefix}"
-  allow_ssh_traffic   = false
+  allow_ssh_traffic   = true
 }
 
 output "linux_vm_public_name"{
   value = "${module.linuxserver.public_ip_dns_name}"
 }
+
